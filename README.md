@@ -51,7 +51,12 @@ Git clone installation:
 2. 'cd encryptopi'
 3. 'sudo chmod +x install.sh encryptopi.py'
 4. 'sudo ./install.sh'
-5. Exit and open a new terminal to use 'encryptopi' shortcut 
+5. Exit and open a new terminal to use 'encryptopi' shortcut
+
+* The script will create input,output,decrypted_output, keys folders for you when launched for the first time
+  The key backup folder will be created when a backup is made for the first time.
+
+  Everything you put into the 'input' folder including ZIP folders and the contents of regular folders will be encrypted when the option is selected. The encrypted contents will then be auto copied over to the output folder. From there using 'decrypt' option will copy the decrypted versions to the 'decrypted_output' folder.
 
 -------------------------------
 
