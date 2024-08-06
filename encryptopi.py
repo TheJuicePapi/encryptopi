@@ -56,7 +56,6 @@ def show_keys():
         print(Fore.RED + f"Error showing keys: {e}")
 
 # Function to load a key
-# Function to load a key
 def load_key(key_filename):
     try:
         key_path = KEYS_DIR / key_filename
