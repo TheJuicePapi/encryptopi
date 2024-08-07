@@ -9,6 +9,7 @@ from cryptography.hazmat.primitives import serialization
 from pathlib import Path
 from colorama import Fore, Style, init
 from tqdm import tqdm
+from pathlib import Path
 import json
 import os
 import sys
@@ -20,11 +21,14 @@ import zipfile
 # Initialize colorama
 init(autoreset=True)
 
-# Paths
-KEYS_DIR = Path("keys")
-INPUT_DIR = Path("input")
-OUTPUT_DIR = Path("output")
-DECRYPT_OUTPUT_DIR = Path("decrypted_output")
+# Get the directory where the script is located
+SCRIPT_DIR = Path(__file__).resolve().parent
+
+# Paths relative to the script's directory
+KEYS_DIR = SCRIPT_DIR / "keys"
+INPUT_DIR = SCRIPT_DIR / "input"
+OUTPUT_DIR = SCRIPT_DIR / "output"
+DECRYPT_OUTPUT_DIR = SCRIPT_DIR / "decrypted_output"
 
 # Ensure directories exist
 for directory in [KEYS_DIR, INPUT_DIR, OUTPUT_DIR, DECRYPT_OUTPUT_DIR]:
@@ -240,7 +244,9 @@ def delete_key():
 # Function to back up keys
 def backup_keys():
     try:
-        backup_dir = Path("key_backups")
+        # Get the directory where the script is located
+        SCRIPT_DIR = Path(__file__).resolve().parent
+        backup_dir = SCRIPT_DIR / "key_backups"
         backup_dir.mkdir(parents=True, exist_ok=True)
         
         for key_file in KEYS_DIR.iterdir():
@@ -257,7 +263,10 @@ def backup_keys():
 # Function to restore keys from backup
 def restore_keys():
     try:
-        backup_dir = Path("key_backups")
+        # Use the directory of the script for backup_dir
+        script_dir = Path(__file__).resolve().parent
+        backup_dir = script_dir / "key_backups"
+        
         if not backup_dir.is_dir():
             print(Fore.RED + "Backup directory does not exist.")
             return
