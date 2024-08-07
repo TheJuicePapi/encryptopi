@@ -58,6 +58,8 @@ Git clone installation:
 
   Everything you put into the 'input' folder including ZIP folders and the contents of regular folders will be encrypted when the option is selected. The encrypted contents will then be auto copied over to the output folder. From there using 'decrypt' option will copy the decrypted versions to the 'decrypted_output' folder.
 
+* The 'decrypted_output folder is the input folder for the 'Check File Integrity' option.
+
 -------------------------------
 
 DEPENDANCIES
